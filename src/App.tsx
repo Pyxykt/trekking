@@ -2,16 +2,14 @@
 // Built with React, Tailwind CSS, Framer Motion
 // Senior frontend architecture: hooks, component decomposition, motion design system
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, type ReactNode, type RefObject } from "react";
 import {
   motion,
   AnimatePresence,
   useScroll,
   useTransform,
   useInView,
-  useSpring,
-  useMotionValue,
-  stagger,
+  type Variants,
 } from "framer-motion";
 
 // ─── DESIGN TOKENS ───────────────────────────────────────────────────────────
@@ -51,31 +49,18 @@ const FontLoader = () => (
 );
 
 // ─── MOTION VARIANTS ─────────────────────────────────────────────────────────
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 36 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
-const fadeIn = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.6 } },
-};
-const staggerContainer = (delay = 0) => ({
+const staggerContainer = (delay = 0): Variants => ({
   hidden: {},
   show: { transition: { staggerChildren: 0.1, delayChildren: delay } },
 });
-const cardVariant = {
-  hidden: { opacity: 0, y: 40, scale: 0.97 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
-  },
-};
 
 // ─── HOOKS ───────────────────────────────────────────────────────────────────
 function useScrollY() {
@@ -88,16 +73,19 @@ function useScrollY() {
   return y;
 }
 
-function useCountUp(target, duration = 1800, startOnView = true) {
+function useCountUp(
+  target: number,
+  duration = 1800,
+): [RefObject<HTMLDivElement | null>, number] {
   const [val, setVal] = useState(0);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const started = useRef(false);
   useEffect(() => {
     if (!inView || started.current) return;
     started.current = true;
     const start = performance.now();
-    const tick = (now) => {
+    const tick = (now: number) => {
       const p = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - p, 3);
       setVal(Math.round(eased * target));
@@ -227,6 +215,8 @@ const TESTIMONIALS = [
 
 const NAV_LINKS = ["Expeditions", "Philosophy", "Guides", "Journal", "Contact"];
 
+type Trek = (typeof TREKS)[number];
+
 // ─── COMPONENTS ──────────────────────────────────────────────────────────────
 
 // Logo
@@ -271,7 +261,13 @@ function Logo() {
 }
 
 // Eyebrow label
-function Eyebrow({ children, color = C.moss }) {
+function Eyebrow({
+  children,
+  color = C.moss,
+}: {
+  children: ReactNode;
+  color?: string;
+}) {
   return (
     <div className="flex items-center gap-3 mb-4">
       <div style={{ width: 40, height: 1, background: color }} />
@@ -286,7 +282,7 @@ function Eyebrow({ children, color = C.moss }) {
 }
 
 // Navbar
-function Navbar({ scrollY }) {
+function Navbar({ scrollY }: { scrollY: number }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("Expeditions");
   const scrolled = scrollY > 80;
@@ -450,7 +446,7 @@ function Navbar({ scrollY }) {
 }
 
 // Mountain SVG silhouette
-function MountainSilhouette({ scrollY }) {
+function MountainSilhouette({ scrollY }: { scrollY: number }) {
   return (
     <div className="absolute bottom-0 left-0 right-0 pointer-events-none overflow-hidden">
       <motion.div style={{ y: scrollY * 0.1 }}>
@@ -490,7 +486,7 @@ function AltitudeTicker() {
 }
 
 // Hero section
-function HeroSection({ scrollY }) {
+function HeroSection({ scrollY }: { scrollY: number }) {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -529,9 +525,12 @@ function HeroSection({ scrollY }) {
 
       {/* Content */}
       <motion.div
-        style={{ opacity }}
         className="relative z-10 flex flex-col justify-center h-full"
-        style={{ padding: "0 clamp(24px, 8vw, 120px)", maxWidth: 900 }}
+        style={{
+          opacity,
+          padding: "0 clamp(24px, 8vw, 120px)",
+          maxWidth: 900,
+        }}
       >
         <motion.div
           variants={staggerContainer(0.2)}
@@ -705,7 +704,15 @@ function HeroSection({ scrollY }) {
 }
 
 // Stat counter card
-function StatCard({ end, suffix, label }) {
+function StatCard({
+  end,
+  suffix,
+  label,
+}: {
+  end: number;
+  suffix: string;
+  label: string;
+}) {
   const [ref, val] = useCountUp(end, 1800);
   return (
     <div ref={ref} className="text-center">
@@ -753,7 +760,7 @@ function StatsBar() {
 }
 
 // Trek card
-function TrekCard({ trek, index }) {
+function TrekCard({ trek, index }: { trek: Trek; index: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [hovered, setHovered] = useState(false);
