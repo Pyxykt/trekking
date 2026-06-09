@@ -1,0 +1,15 @@
+export const C = {
+  bg: "#080E0B",
+  surface: "#0F1A13",
+  card: "#111E15",
+  border: "#1C2E20",
+  borderHi: "#2A4430",
+  moss: "#4A7C59",
+  mossHi: "#5A9C6E",
+  gold: "#C9A84C",
+  goldHi: "#D4B85E",
+  parchment: "#E8DFC8",
+  muted: "#8A9E8E",
+  dim: "#4A5A4E",
+  faint: "#1E2D26",
+} as const;
