@@ -49,7 +49,9 @@ export function TestimonialsSection({
               <>
                 Stories from
                 <br />
-                <em style={{ color: C.gold, fontStyle: "italic" }}>the trail</em>
+                <em style={{ color: C.gold, fontStyle: "italic" }}>
+                  the trail
+                </em>
               </>
             ) : (
               "What our guests say"
@@ -64,7 +66,7 @@ export function TestimonialsSection({
             }}
           >
             {isFull
-              ? "Over a thousand expeditions completed. These are the voices that keep us honest — and keep us climbing."
+              ? "Over a thousand treks completed. These are the voices that keep us honest — and keep us climbing."
               : "Real accounts from guests who walked our routes. No incentives, no edits."}
           </p>
         </motion.div>

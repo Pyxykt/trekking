@@ -6,7 +6,7 @@ import { fadeUp, staggerContainer } from "../../lib/motion";
 import { Eyebrow } from "../ui/Eyebrow";
 import { TrekCard } from "../ui/TrekCard";
 
-export function ExpeditionsSection({
+export function TreksSection({
   showHeader = true,
   limit,
 }: {
@@ -18,10 +18,7 @@ export function ExpeditionsSection({
   const treks = limit ? TREKS.slice(0, limit) : TREKS;
 
   return (
-    <section
-      id="expeditions"
-      style={{ padding: "100px clamp(24px, 6vw, 100px)" }}
-    >
+    <section id="treks" style={{ padding: "100px clamp(24px, 6vw, 100px)" }}>
       {showHeader && (
         <motion.div
           ref={ref}
@@ -39,9 +36,10 @@ export function ExpeditionsSection({
                 color: C.parchment,
               }}
             >
-              Expeditions open
+              Treks open
               <br />
-              for <em style={{ color: C.gold, fontStyle: "italic" }}>2025–26</em>
+              for{" "}
+              <em style={{ color: C.gold, fontStyle: "italic" }}>2025–26</em>
             </h2>
             <p
               style={{

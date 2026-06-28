@@ -1,6 +1,6 @@
 export const ROUTES = {
   home: "/",
-  expeditions: "/expeditions",
+  treks: "/treks",
   philosophy: "/philosophy",
   guides: "/guides",
   journal: "/journal",
@@ -11,7 +11,7 @@ export const ROUTES = {
 export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];
 
 export const NAV_LINKS = [
-  { label: "Expeditions", path: ROUTES.expeditions },
+  { label: "treks", path: ROUTES.treks },
   { label: "Philosophy", path: ROUTES.philosophy },
   { label: "Guides", path: ROUTES.guides },
   { label: "Journal", path: ROUTES.journal },

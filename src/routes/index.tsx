@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { RootLayout } from "../components/layout/RootLayout";
 import { HomePage } from "../pages/HomePage";
-import { ExpeditionsPage } from "../pages/ExpeditionsPage";
+import { TreksPage } from "../pages/TreksPage";
 import { PhilosophyPage } from "../pages/PhilosophyPage";
 import { TestimonialsPage } from "../pages/TestimonialsPage";
 import { PlaceholderPage } from "../pages/PlaceholderPage";
@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: page(ROUTES.expeditions), element: <ExpeditionsPage /> },
+      { path: page(ROUTES.treks), element: <TreksPage /> },
       { path: page(ROUTES.philosophy), element: <PhilosophyPage /> },
       { path: page(ROUTES.testimonials), element: <TestimonialsPage /> },
       {
@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
           <PlaceholderPage
             eyebrow="FIELD JOURNAL"
             title="Stories from the trail"
-            description="Dispatches, photography, and notes from recent expeditions. The journal launches this season."
+            description="Dispatches, photography, and notes from recent treks. The journal launches this season."
           />
         ),
       },

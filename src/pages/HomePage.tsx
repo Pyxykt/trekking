@@ -1,7 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 import { HeroSection } from "../components/sections/HeroSection";
 import { StatsBar } from "../components/sections/StatsBar";
-import { ExpeditionsSection } from "../components/sections/ExpeditionsSection";
+import { TreksSection } from "../components/sections/TreksSection";
 import { PhilosophySection } from "../components/sections/PhilosophySection";
 import { TestimonialsSection } from "../components/sections/TestimonialsSection";
 import { CtaSection } from "../components/sections/CtaSection";
@@ -15,7 +15,7 @@ export function HomePage() {
     <>
       <HeroSection scrollY={scrollY} />
       <StatsBar />
-      <ExpeditionsSection limit={4} />
+      <TreksSection limit={4} />
       <PhilosophySection />
       <TestimonialsSection variant="preview" />
       <CtaSection />

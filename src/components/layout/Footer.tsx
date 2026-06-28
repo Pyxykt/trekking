@@ -7,12 +7,12 @@ import { Logo } from "../ui/Logo";
 export function Footer() {
   const cols = [
     {
-      title: "Expeditions",
+      title: "Treks",
       links: [
-        { label: "Himalaya", path: ROUTES.expeditions },
-        { label: "Patagonia", path: ROUTES.expeditions },
-        { label: "Alps", path: ROUTES.expeditions },
-        { label: "Iceland", path: ROUTES.expeditions },
+        { label: "Himalaya", path: ROUTES.treks },
+        { label: "Patagonia", path: ROUTES.treks },
+        { label: "Alps", path: ROUTES.treks },
+        { label: "Iceland", path: ROUTES.treks },
       ],
     },
     {
@@ -27,10 +27,10 @@ export function Footer() {
     {
       title: "Contact",
       links: [
-        { label: "hello@type2fun.com", path: ROUTES.contact },
-        { label: "+44 20 7946 0991", path: ROUTES.contact },
-        { label: "London · Kathmandu", path: ROUTES.contact },
-        { label: "Book a Call", path: ROUTES.contact },
+        // { label: "hello@type2fun.com", path: ROUTES.contact },
+        { label: "+91 7983952959", path: ROUTES.contact },
+        // { label: "London · Kathmandu", path: ROUTES.contact },
+        // { label: "Book a Call", path: ROUTES.contact },
       ],
     },
   ];
@@ -49,8 +49,8 @@ export function Footer() {
             className="mt-5 leading-relaxed"
             style={{ fontSize: 14, color: C.dim, maxWidth: 260 }}
           >
-            Private trekking expeditions on four continents. Eight guests
-            maximum. No exceptions.
+            Private trekking treks on four continents. Eight guests maximum. No
+            exceptions.
           </p>
         </div>
         {cols.map((col) => (

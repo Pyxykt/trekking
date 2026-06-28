@@ -38,7 +38,7 @@ export function Logo() {
             marginTop: 2,
           }}
         >
-          PRIVATE EXPEDITIONS
+          PRIVATE treks
         </div>
       </div>
     </Link>

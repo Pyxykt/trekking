@@ -106,13 +106,13 @@ export function HeroSection({ scrollY }: { scrollY: number }) {
               maxWidth: 520,
             }}
           >
-            Private expeditions for those who want more than a trail. Eight
-            guests maximum. Guides who know the land like family. No shortcuts,
-            no compromises.
+            Private treks for those who want more than a trail. Eight guests
+            maximum. Guides who know the land like family. No shortcuts, no
+            compromises.
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-14">
-            <Link to={ROUTES.expeditions} className="no-underline">
+            <Link to={ROUTES.treks} className="no-underline">
               <motion.span
                 whileHover={{ scale: 1.03, background: C.mossHi }}
                 whileTap={{ scale: 0.97 }}
@@ -128,7 +128,7 @@ export function HeroSection({ scrollY }: { scrollY: number }) {
                   borderRadius: 1,
                 }}
               >
-                VIEW EXPEDITIONS →
+                VIEW TREKS →
               </motion.span>
             </Link>
             <Link to={ROUTES.philosophy} className="no-underline">

@@ -8,6 +8,15 @@ export function TrekCard({ trek, index }: { trek: Trek; index: number }) {
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [hovered, setHovered] = useState(false);
 
+  const handleWhatsAppInquiry = () => {
+    const phone = "917983952959"; // Country code without +
+    const message = encodeURIComponent(
+      `Hi, I'm interested in the ${trek.name} trek. Can you please share the details?`,
+    );
+
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+  };
+
   return (
     <motion.article
       ref={ref}
@@ -138,6 +147,7 @@ export function TrekCard({ trek, index }: { trek: Trek; index: number }) {
             </span>
           </div>
           <motion.button
+            onClick={handleWhatsAppInquiry}
             whileHover={{
               background: trek.accentHex,
               color: "#fff",
