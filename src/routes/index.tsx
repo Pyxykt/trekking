@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { RootLayout } from "../components/layout/RootLayout";
 import { HomePage } from "../pages/HomePage";
 import { TreksPage } from "../pages/TreksPage";
+import { TrekDetailPage } from "../pages/TrekDetailPage";
 import { PhilosophyPage } from "../pages/PhilosophyPage";
 import { TestimonialsPage } from "../pages/TestimonialsPage";
 import { PlaceholderPage } from "../pages/PlaceholderPage";
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: page(ROUTES.treks), element: <TreksPage /> },
+      { path: `${page(ROUTES.treks)}/:trekSlug`, element: <TrekDetailPage /> },
       { path: page(ROUTES.philosophy), element: <PhilosophyPage /> },
       { path: page(ROUTES.testimonials), element: <TestimonialsPage /> },
       {

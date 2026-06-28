@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { C } from "../../constants/colors";
 import type { Trek } from "../../types/trek";
@@ -146,29 +147,44 @@ export function TrekCard({ trek, index }: { trek: Trek; index: number }) {
               / person
             </span>
           </div>
-          <motion.button
-            onClick={handleWhatsAppInquiry}
-            whileHover={{
-              background: trek.accentHex,
-              color: "#fff",
-              scale: 1.03,
-            }}
-            whileTap={{ scale: 0.97 }}
-            className="font-mono-custom"
-            style={{
-              background: "transparent",
-              color: trek.accentHex,
-              border: `1px solid ${trek.accentHex}`,
-              padding: "7px 18px",
-              fontSize: 11,
-              letterSpacing: "0.1em",
-              cursor: "pointer",
-              borderRadius: 1,
-              transition: "all 0.22s",
-            }}
-          >
-            INQUIRE →
-          </motion.button>
+          <div className="flex items-center gap-2">
+            <motion.button
+              onClick={handleWhatsAppInquiry}
+              whileHover={{
+                background: trek.accentHex,
+                color: "#fff",
+                scale: 1.03,
+              }}
+              whileTap={{ scale: 0.97 }}
+              className="font-mono-custom"
+              style={{
+                background: "transparent",
+                color: trek.accentHex,
+                border: `1px solid ${trek.accentHex}`,
+                padding: "7px 18px",
+                fontSize: 11,
+                letterSpacing: "0.1em",
+                cursor: "pointer",
+                borderRadius: 1,
+                transition: "all 0.22s",
+              }}
+            >
+              INQUIRE →
+            </motion.button>
+            <Link
+              to={`/treks/${trek.slug}`}
+              target="_self"
+              className="font-mono-custom"
+              style={{
+                color: C.parchment,
+                textDecoration: "none",
+                fontSize: 11,
+                letterSpacing: "0.1em",
+              }}
+            >
+              DETAILS →
+            </Link>
+          </div>
         </div>
       </div>
     </motion.article>

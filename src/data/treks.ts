@@ -1,6 +1,7 @@
 export const TREKS = [
   {
     id: 1,
+    slug: "valley-of-flowers",
     name: "Valley Of Flowers",
     region: "Uttarakhand",
     duration: "6 Days",
@@ -12,6 +13,21 @@ export const TREKS = [
     accentHex: "#4A7C59",
     img: "https://cdn.trekthehimalayas.com/images/ValleyofFlowersTrek/Slider/fa912eb2-7826-430a-b75c-aeaed9a15f56_valley%20of%20flowers%20slider%20desk%20(1).webp",
     desc: "Valley of Flowers Trek is one of the most scenic Himalayan treks, taking you through vibrant alpine meadows, cascading waterfalls, and breathtaking mountain landscapes. The journey also includes a trek to the sacred Hemkund Sahib, making it a perfect blend of nature, adventure, and spirituality. Suitable for beginners and experienced trekkers alike, this 6-day adventure offers an unforgettable experience in the heart of the Garhwal Himalayas.",
+    highlights: [
+      "Vibrant alpine meadows in full bloom during the monsoon season",
+      "A sacred stop at Hemkund Sahib with dramatic glacial views",
+      "A balanced route that suits first-time Himalayan trekkers",
+    ],
+    itinerary: [
+      "Day 1: Rishikesh to Pipalkoti — drive from Rishikesh to Pipalkoti and overnight stay at Pipalkoti.",
+      "Day 2: Pipalkoti – Govindghat – Pulna – Ghangaria — drive to Govindghat, continue to Pulna, and trek to Ghangaria (approximately 9 km).",
+      "Day 3: Ghangaria – Valley of Flowers – Ghangaria — trek to the Valley of Flowers National Park, explore the meadows, and return to Ghangaria.",
+      "Day 4: Ghangaria – Hemkund Sahib – Ghangaria — early morning trek to Hemkund Sahib (4,329 m), spend time at the sacred lake and gurudwara, and trek back to Ghangaria.",
+      "Day 5: Ghangaria – Pulna – Govindghat – Pipalkoti — descend to Pulna, drive via Govindghat to Pipalkoti, and optionally visit Badrinath depending on time and road conditions.",
+      "Day 6: Pipalkoti to Rishikesh — drive back to Rishikesh after breakfast and conclude the trek.",
+    ],
+    bestSeason: "July to September",
+    fitness: "Moderate fitness recommended",
   },
   // {
   //   id: 2,
