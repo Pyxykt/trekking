@@ -46,14 +46,7 @@ export function TrekDetailPage() {
           ← Back to treks
         </Link>
 
-        <div
-          style={{
-            display: "grid",
-            gap: 24,
-            gridTemplateColumns: "1.1fr 0.9fr",
-            alignItems: "stretch",
-          }}
-        >
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-6">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -68,7 +61,7 @@ export function TrekDetailPage() {
             <img
               src={trek.img}
               alt={trek.name}
-              style={{ width: "100%", height: "420px", objectFit: "cover" }}
+              style={{ width: "100%", height: "clamp(260px, 46vw, 420px)", objectFit: "cover" }}
             />
           </motion.div>
 
@@ -125,7 +118,7 @@ export function TrekDetailPage() {
               ))}
             </div>
 
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 4 }}>
+            <div className="mt-1 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <button
                 type="button"
                 onClick={handleWhatsAppInquiry}
@@ -168,7 +161,7 @@ export function TrekDetailPage() {
           padding: "8px clamp(24px, 6vw, 100px) 100px",
           display: "grid",
           gap: 24,
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
         }}
       >
         <div

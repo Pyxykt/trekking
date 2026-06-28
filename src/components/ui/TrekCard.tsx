@@ -135,7 +135,7 @@ export function TrekCard({ trek, index }: { trek: Trek; index: number }) {
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-between pt-1">
+        <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <span
               className="font-mono-custom font-bold"
@@ -147,7 +147,7 @@ export function TrekCard({ trek, index }: { trek: Trek; index: number }) {
               / person
             </span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <motion.button
               onClick={handleWhatsAppInquiry}
               whileHover={{
