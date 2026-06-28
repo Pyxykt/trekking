@@ -27,7 +27,7 @@ export function Footer() {
     {
       title: "Contact",
       links: [
-        { label: "hello@summitwild.com", path: ROUTES.contact },
+        { label: "hello@type2fun.com", path: ROUTES.contact },
         { label: "+44 20 7946 0991", path: ROUTES.contact },
         { label: "London · Kathmandu", path: ROUTES.contact },
         { label: "Book a Call", path: ROUTES.contact },
@@ -85,7 +85,7 @@ export function Footer() {
           className="font-mono-custom"
           style={{ fontSize: 11, color: C.faint, letterSpacing: "0.08em" }}
         >
-          © 2025 SUMMIT & WILD · ALL RIGHTS RESERVED
+          © 2025 TYPE 2 FUN · ALL RIGHTS RESERVED
         </span>
         <div className="flex gap-6">
           {["Privacy", "Terms", "Sustainability"].map((l) => (

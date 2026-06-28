@@ -19,12 +19,22 @@ export function AudioPlayer() {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => setIsPlaying(true))
-        .catch(() => setIsPlaying(false));
+    const attemptPlay = () => {
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch(() => setIsPlaying(false));
+      }
+    };
+
+    if (audio.readyState >= 2) {
+      attemptPlay();
+    } else {
+      audio.addEventListener("canplay", attemptPlay, { once: true });
     }
+
+    return () => audio.removeEventListener("canplay", attemptPlay);
   }, []);
 
   const togglePlay = async () => {

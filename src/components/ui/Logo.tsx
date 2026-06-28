@@ -27,7 +27,7 @@ export function Logo() {
           className="font-display font-semibold leading-none"
           style={{ fontSize: 17, color: C.parchment, letterSpacing: "0.02em" }}
         >
-          Summit & Wild
+          Type 2 Fun
         </div>
         <div
           className="font-mono-custom"
